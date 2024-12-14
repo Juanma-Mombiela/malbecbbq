@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Nourd';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/nourd_medium.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Nourd';
+    font-style: normal;
+    font-weight: 600; /* Peso para Semi Bold */
+    font-display: swap;
+    src: url('/fonts/nourd_semi_bold.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'lucidity_condensed';
+    font-style: normal;
+    font-weight: 600; /* Peso para Semi Bold */
+    font-display: swap;
+    src: url('/fonts/lucidity_condensed.ttf') format('truetype');
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container nav .link::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1B4869;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.5s ease;
+}
+
+.container nav .link:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.link-joinus::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1B4869;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.5s ease;
+}
+
+.link-joinus:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.checkered-pattern {
+  background-color: #FFFFFF;
+  opacity: 1;
+  background-image:  repeating-linear-gradient(45deg, #A7292F 25%, transparent 25%, transparent 75%, #A7292F 75%, #A7292F), repeating-linear-gradient(45deg, #A7292F 25%, #FFFFFF 25%, #FFFFFF 75%, #A7292F 75%, #A7292F);
+  background-position: 0 0, 25px 25px;
+  background-size: 50px 50px;
+  height: 50px;
+}
+
