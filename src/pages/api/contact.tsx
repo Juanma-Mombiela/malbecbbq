@@ -1,38 +1,48 @@
+import type { NextApiRequest, NextApiResponse } from 'next';
 import sendgrid from '@sendgrid/mail';
 
-// Configura SendGrid con tu API Key
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+// Asegúrate de que las variables de entorno estén definidas
+const apiKey = process.env.SENDGRID_API_KEY;
+const toEmail = process.env.TO_EMAIL;
+const fromEmail = process.env.FROM_EMAIL;
 
-export default async function handler(req, res) {
+// Verifica que las variables de entorno estén presentes
+if (!apiKey || !toEmail || !fromEmail) {
+  throw new Error('Missing environment variables for SendGrid.');
+}
+
+sendgrid.setApiKey(apiKey);
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { name, email, about, menu, message } = req.body;
 
-    // Validar campos
+    // Validación de campos
     if (!name || !email || !about || !menu || !message) {
-      return res.status(400).json({ message: 'All fields are required' });
+      return res.status(400).json({ message: 'All fields are required.' });
     }
 
     try {
-      // Configura el correo
       await sendgrid.send({
-        to: process.env.TO_EMAIL, // El correo donde recibes
-        from: process.env.FROM_EMAIL, // El remitente
-        subject: `Nuevo mensaje de ${name}`,
-        text: `
-          Name: ${name}
-          Email: ${email}
-          Event: ${about}
-          Menu: ${menu}
-          Message: ${message}
+        to: toEmail!,  // Correo de destino
+        from: fromEmail!,  // Correo remitente
+        subject: 'New Contact Form Submission',
+        html: `
+          <h1>Contact Form Submission</h1>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>About:</strong> ${about}</p>
+          <p><strong>Menu:</strong> ${menu}</p>
+          <p><strong>Message:</strong> ${message}</p>
         `,
       });
 
       return res.status(200).json({ message: 'Message sent successfully!' });
     } catch (error) {
       console.error('Error sending email:', error);
-      return res.status(500).json({ message: 'Error sending email' });
+      return res.status(500).json({ message: 'Internal Server Error' });
     }
   } else {
-    res.status(405).json({ message: 'Method not allowed' });
+    return res.status(405).json({ message: 'Method Not Allowed' });
   }
 }

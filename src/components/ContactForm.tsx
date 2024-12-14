@@ -9,11 +9,12 @@ export default function ContactForm() {
     message: '',
   });
 
-  const handleChange = (e) => {
+  // Cambiamos el tipo de evento para manejar todos los tipos
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await fetch('/api/contact', {
       method: 'POST',
@@ -54,7 +55,7 @@ export default function ContactForm() {
           <select
             name="about"
             className="w-full p-3 border rounded"
-            onChange={handleChange}
+            onChange={handleChange}  // Aquí ya no da error
             required
           >
             <option value="">About your event</option>
@@ -67,7 +68,7 @@ export default function ContactForm() {
           <select
             name="menu"
             className="w-full p-3 border rounded"
-            onChange={handleChange}
+            onChange={handleChange}  // Aquí también
             required
           >
             <option value="">Choose your menu</option>
@@ -82,13 +83,13 @@ export default function ContactForm() {
             placeholder="Message"
             className="w-full p-3 border rounded"
             onChange={handleChange}
-            rows="4"
+            rows={4}  // Aquí el valor de "4" debe ser un número, no una cadena
             required
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-red-700 text-white py-3 rounded hover:bg-red-800 transition duration-300"
+          className="w-full bg-second text-white py-3 rounded hover:bg-red-800 transition duration-300"
         >
           Submit
         </button>
