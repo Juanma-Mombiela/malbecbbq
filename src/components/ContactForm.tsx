@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -98,7 +99,7 @@ export default function ContactForm() {
 
         {/* Imagen a la derecha del formulario */}
         <div className="flex justify-center md:justify-end w-full md:w-1/2">
-          <img
+          <Image
             src="/logo_aboutus.svg"
             alt="Malbec BBQ"
             className="w-full max-w-xs md:max-w-sm"

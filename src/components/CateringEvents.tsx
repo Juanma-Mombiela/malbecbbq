@@ -12,17 +12,17 @@ export default function CateringEvents() {
         Want to bring the Malbec BBQ experience to your next event? We’ve got you covered! From full-service catering and pickup to our amazing food truck, we deliver our signature flavors to your event. Whether it’s a wedding, engagement party, corporate event, festival, or any other venue, we are ready to provide you an unforgettable experience.
         </p>
         <div className="relative w-full max-w-4xl">
-          <img
+          <Image
             src="/catering.jpg"
             alt="Catering BBQ"
             className="rounded-[12px] object-cover w-full h-96"
           />
           {/* Navigation Arrows */}
           <button className="flex items-center justify-center absolute w-14 h-14 top-1/2 -left-7 transform -translate-y-1/2 bg-primary text-white rounded-[10px] p-2 shadow-md">
-            <img src="/arrow-left.svg" alt="Arrow" className="w-8 h-8" />
+            <Image src="/arrow-left.svg" alt="Arrow" className="w-8 h-8" />
           </button>
           <button className="flex items-center justify-center absolute w-14 h-14 top-1/2 -right-7 transform -translate-y-1/2 bg-primary text-white rounded-[10px] p-2 shadow-md">
-            <img src="/arrow-right.svg" alt="Arrow" className="w-8 h-8" />
+            <Image src="/arrow-right.svg" alt="Arrow" className="w-8 h-8" />
           </button>
         </div>
       </div>

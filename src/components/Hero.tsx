@@ -1,10 +1,12 @@
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <section className="relative">
-      <img
+      <Image
         src="/banner_principal.jpg"
         alt="Malbec BBQ"
-        className="w-full h-[40vh] md:h-[50vh] lg:h-96 object-cover"
+        className="w-full h-96 object-cover"
       />
     </section>
   );

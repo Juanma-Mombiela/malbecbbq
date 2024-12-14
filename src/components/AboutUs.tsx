@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AboutUs() {
   return (
@@ -6,7 +7,7 @@ export default function AboutUs() {
       {/* Primera fila */}
       <div className="container mx-auto flex flex-col md:flex-row items-start gap-6">
         <div className="w-full md:w-1/3 h-full">
-          <img
+          <Image
             src="/aboutus.jpg"
             alt="About Malbec BBQ"
             className="rounded-[12px] h-80 w-full object-cover"
@@ -28,7 +29,7 @@ export default function AboutUs() {
           </p>
         </div>
         <div className="w-full md:w-1/3 h-64 flex justify-center md:justify-end">
-          <img
+          <Image
             src="/logo_aboutus.svg"
             alt="Logo About Malbec BBQ"
             className="h-64 w-64 object-contain"
@@ -39,7 +40,7 @@ export default function AboutUs() {
       {/* Segunda fila */}
       <div className="container mx-auto flex flex-col-reverse md:flex-row items-start gap-6 mt-10">
         <div className="w-full md:w-1/3 h-48 flex justify-center md:justify-start">
-          <img
+          <Image
             src="/icon_aboutus.svg"
             alt="Icon About Malbec BBQ"
             className="h-48 w-48 object-contain"
@@ -65,7 +66,7 @@ export default function AboutUs() {
           </div>
         </div>
         <div className="w-full md:w-1/3 h-full">
-          <img
+          <Image
             src="/aboutus_two.jpg"
             alt="About Malbec BBQ Two"
             className="rounded-[12px] h-96 w-full object-cover"
