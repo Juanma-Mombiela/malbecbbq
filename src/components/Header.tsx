@@ -1,7 +1,12 @@
+import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Función para alternar el estado del menú
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
   return (
     <>
       {/* Preheader */}
@@ -10,10 +15,10 @@ export default function Header() {
           <div className="flex font-nourd font-medium">Follow us:</div>
           <div className="flex items-center gap-4">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-              <Image src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
+              <img src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
             </a>
             <a href="mailto:info@malbecbbq.com" className="hover:text-gray-300">
-              <Image src="/email.svg" alt="Email" className="w-5 h-5" />
+              <img src="/email.svg" alt="Email" className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -23,9 +28,30 @@ export default function Header() {
       <header className="sticky top-0 bg-white z-50 shadow">
         <div className="container flex justify-between items-center max-w-full px-4">
           <div className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="Malbec BBQ Logo" className="w-30 h-30" />
+            <img src="/logo.svg" alt="Malbec BBQ Logo" className="w-30 h-30" />
           </div>
-          <nav className="flex gap-6 font-nourd font-semibold">
+
+          {/* Botón de menú para móvil */}
+          <button 
+            className="lg:hidden flex items-center justify-center p-2 text-primary" 
+            onClick={toggleMenu}
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="24" height="24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="h-6 w-6"
+            >
+              <path d="M3 6h18M3 12h18M3 18h18"></path>
+            </svg>
+          </button>
+
+          {/* Navegación */}
+          <nav className={`flex gap-6 font-nourd font-semibold lg:flex ${isMenuOpen ? 'flex-col absolute top-16 left-0 bg-white w-full shadow-lg px-4 py-6' : 'hidden'}`}>
             <Link href="#" className="link relative text-primary">Home</Link>
             <Link href="#about" className="link relative text-primary">About us</Link>
             <Link href="#catering" className="link relative text-primary">Catering & Events</Link>
@@ -33,19 +59,6 @@ export default function Header() {
           </nav>
         </div>
       </header>
-
-      {/* Barra de navegación responsive */}
-      <div className="flex justify-between md:hidden px-4 py-2 bg-red-800">
-        <button className="text-white">☰</button>
-        <div className="flex gap-4">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-            <Image src="/instagram-icon.svg" alt="Instagram" className="w-6 h-6" />
-          </a>
-          <a href="mailto:info@malbecbbq.com" className="hover:text-gray-300">
-            <Image src="/email-icon.svg" alt="Email" className="w-6 h-6" />
-          </a>
-        </div>
-      </div>
     </>
   );
 }
