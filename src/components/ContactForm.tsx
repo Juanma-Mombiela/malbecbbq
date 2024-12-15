@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Image from 'next/image';
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -26,11 +25,24 @@ export default function ContactForm() {
   };
 
   return (
-    <div id="contact" className="flex justify-center bg-gray-100 py-12">
-      <div className="container max-w-7xl flex flex-col md:flex-row items-center gap-12">
-        {/* Formulario */}
+    <div id="contact" className="flex justify-center bg-neutral py-12">
+      <div className="container max-w-7xl flex flex-col md:flex-row items-center md:items-start bg-neutral gap-12">
+        <div className="w-full md:w-1/3 text-center md:text-left">
+          <h3 className="text-second text-4xl font-bold font-lucidity_condensed">
+            Get in touch!!
+          </h3>
+          <p className="text-second text-sm font-nourd font-medium pt-4 md:pt-8">
+            Ready to get started? Fill out our online form and our team will get back to you to answer your questions and make your plan a reality.
+          </p>
+          <p className="text-second text-sm font-nourd font-medium pt-4 md:pt-8">
+            Shoot us an email and we will get back to you. For an immediate response or question, please call us at 248-9127356.
+          </p>
+          <p className="text-second text-sm font-nourd font-medium pt-4 md:pt-8">
+          We look forward to hearing from you!!!
+          </p>
+        </div>
         <form
-          className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg"
+          className="w-full max-w-lg rounded-lg"
           onSubmit={handleSubmit}
         >
           <div className="mb-4">
@@ -38,7 +50,7 @@ export default function ContactForm() {
               type="text"
               name="name"
               placeholder="Your name"
-              className="w-full p-3 border rounded"
+              className="w-full p-3 border rounded text-primary border-primary focus:border-primary bg-neutral"
               onChange={handleChange}
               required
             />
@@ -48,7 +60,7 @@ export default function ContactForm() {
               type="email"
               name="email"
               placeholder="Email"
-              className="w-full p-3 border rounded"
+              className="w-full p-3 border rounded text-primary border-primary active:border-primary bg-neutral"
               onChange={handleChange}
               required
             />
@@ -56,7 +68,7 @@ export default function ContactForm() {
           <div className="mb-4">
             <select
               name="about"
-              className="w-full p-3 border rounded"
+              className="w-full p-3 border rounded text-primary border-primary active:border-primary bg-neutral"
               onChange={handleChange}
               required
             >
@@ -69,7 +81,7 @@ export default function ContactForm() {
           <div className="mb-4">
             <select
               name="menu"
-              className="w-full p-3 border rounded"
+              className="w-full p-3 border rounded text-primary border-primary active:border-primary bg-neutral"
               onChange={handleChange}
               required
             >
@@ -83,7 +95,7 @@ export default function ContactForm() {
             <textarea
               name="message"
               placeholder="Message"
-              className="w-full p-3 border rounded"
+              className="w-full p-3 border rounded text-primary active:border-primary bg-neutral"
               onChange={handleChange}
               rows={4}
               required
@@ -96,13 +108,11 @@ export default function ContactForm() {
             Submit
           </button>
         </form>
-
-        {/* Imagen a la derecha del formulario */}
-        <div className="flex justify-center md:justify-end w-full md:w-1/2">
-          <Image
+        <div className="flex justify-center md:justify-start w-full md:w-1/2">
+          <img
             src="/logo_aboutus.svg"
             alt="Malbec BBQ"
-            className="w-full max-w-xs md:max-w-sm"
+            className="h-64 w-64 object-contain"
           />
         </div>
       </div>
