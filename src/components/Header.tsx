@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,10 +15,10 @@ export default function Header() {
           <div className="flex font-nourd font-medium">Follow us:</div>
           <div className="flex items-center gap-4">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
-              <Image src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
+              <img src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
             </a>
             <a href="mailto:info@malbecbbq.com" className="hover:text-gray-300">
-              <Image src="/email.svg" alt="Email" className="w-5 h-5" />
+              <img src="/email.svg" alt="Email" className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -29,7 +28,7 @@ export default function Header() {
       <header className="sticky top-0 bg-white z-50 shadow">
         <div className="container flex justify-between items-center max-w-full px-4">
           <div className="flex items-center gap-2">
-            <Image src="/logo.svg" alt="Malbec BBQ Logo" className="w-30 h-30" />
+            <img src="/logo.svg" alt="Malbec BBQ Logo" className="w-30 h-30" />
           </div>
 
           {/* Botón de menú para móvil */}

@@ -10,7 +10,7 @@ module.exports = {
       primary: '#1B4869',
       second: '#A7292F',
       white: '#ffffff',
-      neutral: '#565584',
+      neutral: '#EBEBEB',
     },
     extend: {
       fontFamily: {
