@@ -25,7 +25,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div id="contact" className="flex justify-center bg-neutral py-12">
+    <div id="contact" className="flex justify-center bg-neutral py-10 px-4">
       <div className="container max-w-7xl flex flex-col md:flex-row items-center md:items-start bg-neutral gap-12">
         <div className="w-full md:w-1/3 text-center md:text-left">
           <h3 className="text-second text-4xl font-bold font-lucidity_condensed">
@@ -76,6 +76,7 @@ export default function ContactForm() {
               <option value="wedding">Wedding</option>
               <option value="party">Party</option>
               <option value="corporate">Corporate</option>
+              <option value="others">Others</option>
             </select>
           </div>
           <div className="mb-4">
