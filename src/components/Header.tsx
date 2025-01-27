@@ -10,11 +10,15 @@ export default function Header() {
   return (
     <>
       {/* Preheader */}
-      <div className="bg-second text-white text-sm py-2">
-        <div className="container max-w-full flex justify-end items-center gap-2 px-4">
+      <div className="bg-second text-white text-sm py-2 container max-w-full flex flex-row justify-end gap-6">
+        <a href="tel:2489127356" className="max-w-full flex justify-end items-center gap-4 px-4">
+          <img src="/phone.svg" alt="Instagram" className="w-5 h-5" />
+          <div className="flex font-nourd font-medium">2489127356</div>
+        </a>
+        <div className="max-w-full flex justify-end items-center gap-4 px-4">
           <div className="flex font-nourd font-medium">Follow us:</div>
-          <div className="flex items-center gap-4">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
+          <div className="flex items-center gap-2">
+            <a href="https://www.instagram.com/malbec.bbq" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
               <img src="/instagram.svg" alt="Instagram" className="w-5 h-5" />
             </a>
             <a href="mailto:info@malbecbbq.com" className="hover:text-gray-300">
@@ -28,7 +32,7 @@ export default function Header() {
       <header className="sticky top-0 bg-white z-50 shadow">
         <div className="container flex justify-between items-center max-w-full px-4">
           <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="Malbec BBQ Logo" className="w-30 h-30" />
+            <img src="/logo.svg" alt="Malbec BBQ Logo" className="h-full max-h-24 w-auto py-4" />
           </div>
 
           {/* Botón de menú para móvil */}
@@ -51,7 +55,7 @@ export default function Header() {
           </button>
 
           {/* Navegación */}
-          <nav className={`flex gap-6 font-nourd font-semibold lg:flex ${isMenuOpen ? 'flex-col absolute top-16 left-0 bg-white w-full shadow-lg px-4 py-6' : 'hidden'}`}>
+          <nav className={`flex gap-6 font-nourd font-semibold lg:flex ${isMenuOpen ? 'flex-col absolute top-24 left-0 bg-white w-full shadow-lg px-4 py-6' : 'hidden'}`}>
             <Link href="#" className="link relative text-primary">Home</Link>
             <Link href="#about" className="link relative text-primary">About us</Link>
             <Link href="#catering" className="link relative text-primary">Catering & Events</Link>
