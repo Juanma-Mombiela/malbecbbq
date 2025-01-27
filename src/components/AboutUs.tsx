@@ -111,12 +111,7 @@ export default function AboutUs() {
                 </svg>
               </a>
             </div>
-            <a
-              href="#contact"
-              className="text-second text-2xl font-bold font-lucidity_condensed"
-            >
-              Join us!
-            </a>
+            <Link href="#contact" className="text-second text-2xl font-bold font-lucidity_condensed">Join us!</Link>
           </div>
         </div>
       </div>
