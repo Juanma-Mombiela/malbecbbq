@@ -15,10 +15,10 @@ sendgrid.setApiKey(apiKey);
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const { name, email, about, menu, message } = req.body;
+    const { name, email, about, eventDate, guests, message } = req.body;
 
     // Validación de campos
-    if (!name || !email || !about || !menu || !message) {
+    if (!name || !email || !about || !eventDate || !guests || !message) {
       return res.status(400).json({ message: 'All fields are required.' });
     }
 
@@ -32,7 +32,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>About:</strong> ${about}</p>
-          <p><strong>Menu:</strong> ${menu}</p>
+          <p><strong>Event Date:</strong> ${eventDate}</p>
+          <p><strong>Guests:</strong> ${guests}</p>
           <p><strong>Message:</strong> ${message}</p>
         `,
       });

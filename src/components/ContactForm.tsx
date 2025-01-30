@@ -74,23 +74,36 @@ export default function ContactForm() {
             >
               <option value="">About your event</option>
               <option value="wedding">Wedding</option>
-              <option value="party">Party</option>
-              <option value="corporate">Corporate</option>
-              <option value="others">Others</option>
+              <option value="party">Birthday Party</option>
+              <option value="corporate">Corporate Event</option>
+              <option value="aniversary">Aniversary Celebration</option>
+              <option value="Reunion">Reunion</option>
+              <option value="charity">Charity Event</option>
+              <option value="productLaunch">Product Launch</option>
+              <option value="graduation">Graduation Party</option>
+              <option value="holiday">Holiday party</option>
+              <option value="others">Other</option>
             </select>
           </div>
           <div className="mb-4">
-            <select
-              name="menu"
+          <input
+              type="date"
+              name="eventDate"
+              placeholder="Event Date"
               className="w-full p-3 border rounded text-primary border-primary active:border-primary bg-neutral"
               onChange={handleChange}
               required
-            >
-              <option value="">Choose your menu</option>
-              <option value="standard">Standard</option>
-              <option value="premium">Premium</option>
-              <option value="custom">Custom</option>
-            </select>
+            />
+          </div>
+          <div className="mb-4">
+          <input
+              type="number"
+              name="guests"
+              placeholder="Guests"
+              className="w-full p-3 border rounded text-primary border-primary active:border-primary bg-neutral"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="mb-4">
             <textarea
@@ -106,7 +119,7 @@ export default function ContactForm() {
             type="submit"
             className="w-full bg-second text-white py-3 rounded hover:bg-red-800 transition duration-300"
           >
-            Submit
+            Send
           </button>
         </form>
         <div className="flex justify-center md:justify-start w-full md:w-1/2">
