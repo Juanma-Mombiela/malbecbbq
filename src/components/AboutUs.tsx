@@ -50,8 +50,8 @@ export default function AboutUs() {
         </div>
 
         {/* Redes sociales */}
-        <div className="mt-12 flex justify-center md:justify-end md:col-span-2 md:col-start-4 md:row-start-3">
-          <div className="flex flex-col items-center md:items-end space-y-4">
+        <div className="mt-12 flex justify-center items-end md:justify-end md:col-span-2 md:col-start-4 md:row-start-3">
+          <div className="mt-12 flex flex-col items-end md:items-end space-y-4">
             <div className="flex space-x-4">
               {/* Botón de Instagram */}
               <a
